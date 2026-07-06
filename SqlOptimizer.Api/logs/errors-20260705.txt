@@ -1,0 +1,72 @@
+2026-07-05 18:59:02.750 +05:30 [ERR] [SqlOptimizer.Application.Services.StoredProcedureService] "MySql" error while getting stored procedure details: detail {"ActionId":"8a1d6656-7966-455f-aa4b-da849de6c9f7","ActionName":"SqlOptimizer.Api.Controllers.StoredProcedureController.GetStoredProcedureDetailPost (SqlOptimizer.Api)","RequestId":"0HNMQJ59HN5NO:0000000A","RequestPath":"/api/StoredProcedure/detail","ConnectionId":"0HNMQJ59HN5NO","ThreadId":18,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'sys.procedures' doesn't exist
+   at MySql.Data.MySqlClient.MySqlStream.CheckForServerError()
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync()
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetBasicProcedureInfoAsync(IDbConnection connection, String schemaName, String procedureName) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 123
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetStoredProcedureDetailAsync(StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 58
+2026-07-05 18:59:02.817 +05:30 [ERR] [SqlOptimizer.Api.Controllers.StoredProcedureController] Error getting stored procedure details for: detail {"ActionId":"8a1d6656-7966-455f-aa4b-da849de6c9f7","ActionName":"SqlOptimizer.Api.Controllers.StoredProcedureController.GetStoredProcedureDetailPost (SqlOptimizer.Api)","RequestId":"0HNMQJ59HN5NO:0000000A","RequestPath":"/api/StoredProcedure/detail","ConnectionId":"0HNMQJ59HN5NO","ThreadId":18,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+System.InvalidOperationException: Failed to get stored procedure details: Table 'sys.procedures' doesn't exist
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'sys.procedures' doesn't exist
+   at MySql.Data.MySqlClient.MySqlStream.CheckForServerError()
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync()
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetBasicProcedureInfoAsync(IDbConnection connection, String schemaName, String procedureName) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 123
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetStoredProcedureDetailAsync(StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 58
+   --- End of inner exception stack trace ---
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetStoredProcedureDetailAsync(StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 99
+   at SqlOptimizer.Api.Controllers.StoredProcedureController.GetStoredProcedureDetailPost(String name, StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Api\Controllers\StoredProcedureController.cs:line 174
+2026-07-05 18:59:16.246 +05:30 [ERR] [SqlOptimizer.Application.Services.StoredProcedureService] "MySql" error while getting stored procedure details: detail {"ActionId":"8a1d6656-7966-455f-aa4b-da849de6c9f7","ActionName":"SqlOptimizer.Api.Controllers.StoredProcedureController.GetStoredProcedureDetailPost (SqlOptimizer.Api)","RequestId":"0HNMQJ59HN5NP:0000000A","RequestPath":"/api/StoredProcedure/detail","ConnectionId":"0HNMQJ59HN5NP","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'sys.procedures' doesn't exist
+   at MySql.Data.MySqlClient.MySqlStream.CheckForServerError()
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync()
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetBasicProcedureInfoAsync(IDbConnection connection, String schemaName, String procedureName) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 123
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetStoredProcedureDetailAsync(StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 58
+2026-07-05 18:59:16.265 +05:30 [ERR] [SqlOptimizer.Api.Controllers.StoredProcedureController] Error getting stored procedure details for: detail {"ActionId":"8a1d6656-7966-455f-aa4b-da849de6c9f7","ActionName":"SqlOptimizer.Api.Controllers.StoredProcedureController.GetStoredProcedureDetailPost (SqlOptimizer.Api)","RequestId":"0HNMQJ59HN5NP:0000000A","RequestPath":"/api/StoredProcedure/detail","ConnectionId":"0HNMQJ59HN5NP","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+System.InvalidOperationException: Failed to get stored procedure details: Table 'sys.procedures' doesn't exist
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'sys.procedures' doesn't exist
+   at MySql.Data.MySqlClient.MySqlStream.CheckForServerError()
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync()
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultInternalAsync(CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderInternalAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetBasicProcedureInfoAsync(IDbConnection connection, String schemaName, String procedureName) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 123
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetStoredProcedureDetailAsync(StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 58
+   --- End of inner exception stack trace ---
+   at SqlOptimizer.Application.Services.StoredProcedureService.GetStoredProcedureDetailAsync(StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\StoredProcedureService.cs:line 99
+   at SqlOptimizer.Api.Controllers.StoredProcedureController.GetStoredProcedureDetailPost(String name, StoredProcedureRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Api\Controllers\StoredProcedureController.cs:line 174

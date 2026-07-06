@@ -1,0 +1,186 @@
+# Kubernetes Deployment Configuration for SqlOptimizer API
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sqloptimizer
+
+---
+# ConfigMap for application settings
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sqloptimizer-config
+  namespace: sqloptimizer
+data:
+  ASPNETCORE_ENVIRONMENT: "Production"
+  Serilog__MinimumLevel__Default: "Information"
+  Serilog__MinimumLevel__Override__Microsoft: "Warning"
+  Serilog__MinimumLevel__Override__System: "Warning"
+  Database__CommandTimeout: "30"
+  OpenAI__ApiEndpoint: "https://api.openai.com/v1/chat/completions"
+  OpenAI__Model: "gpt-4"
+  OpenAI__MaxTokens: "2000"
+  OpenAI__Temperature: "0.7"
+  OpenAI__TimeoutSeconds: "60"
+  OpenAI__MaxRetryAttempts: "3"
+  OpenAI__RetryDelayMilliseconds: "1000"
+  EnableSwagger: "true"
+
+---
+# Secret for sensitive data
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sqloptimizer-secrets
+  namespace: sqloptimizer
+type: Opaque
+stringData:
+  OPENAI_API_KEY: "your-openai-api-key-here"
+  DATABASE_CONNECTION_STRING: "Server=sqlserver-service;Database=SqlOptimizerDb;User Id=sa;Password=YourStrong@Password123;TrustServerCertificate=True;"
+
+---
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqloptimizer-api
+  namespace: sqloptimizer
+  labels:
+    app: sqloptimizer-api
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sqloptimizer-api
+  template:
+    metadata:
+      labels:
+        app: sqloptimizer-api
+        version: v1
+    spec:
+      containers:
+      - name: sqloptimizer-api
+        image: your-registry.com/sqloptimizer-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://+:8080"
+        envFrom:
+        - configMapRef:
+            name: sqloptimizer-config
+        - secretRef:
+            name: sqloptimizer-secrets
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+      volumes:
+      - name: logs
+        emptyDir: {}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqloptimizer-api-service
+  namespace: sqloptimizer
+  labels:
+    app: sqloptimizer-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: sqloptimizer-api
+
+---
+# Horizontal Pod Autoscaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: sqloptimizer-api-hpa
+  namespace: sqloptimizer
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sqloptimizer-api
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+---
+# Ingress (Optional - for external access)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sqloptimizer-ingress
+  namespace: sqloptimizer
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - sqloptimizer.yourdomain.com
+    secretName: sqloptimizer-tls
+  rules:
+  - host: sqloptimizer.yourdomain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sqloptimizer-api-service
+            port:
+              number: 80

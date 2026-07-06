@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  sqloptimizer-api:
+    image: sqloptimizer-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sqloptimizer-api-dev
+    restart: unless-stopped
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      
+      # Serilog Configuration
+      - Serilog__MinimumLevel__Default=Debug
+      - Serilog__MinimumLevel__Override__Microsoft=Information
+      - Serilog__MinimumLevel__Override__Microsoft.AspNetCore=Warning
+      
+      # Database Configuration
+      - Database__ConnectionString=Server=sqlserver;Database=SqlOptimizerDb_Dev;User Id=sa;Password=YourStrong@Password123;TrustServerCertificate=True;
+      - Database__CommandTimeout=30
+      
+      # OpenAI Configuration
+      - OpenAI__ApiKey=${OPENAI_API_KEY:-your-openai-api-key-here}
+      - OpenAI__ApiEndpoint=https://api.openai.com/v1/chat/completions
+      - OpenAI__Model=gpt-4
+      - OpenAI__MaxTokens=2000
+      - OpenAI__Temperature=0.7
+      - OpenAI__TimeoutSeconds=60
+      - OpenAI__MaxRetryAttempts=3
+      - OpenAI__RetryDelayMilliseconds=1000
+    volumes:
+      - ./logs:/app/logs
+      - ./SqlOptimizer.Api:/app/src
+    networks:
+      - sqloptimizer-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqloptimizer-sqlserver-dev
+    restart: unless-stopped
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Password123
+      - MSSQL_PID=Developer
+    volumes:
+      - sqlserver-dev-data:/var/opt/mssql
+      - ./SqlOptimizer.Infrastructure/Scripts:/docker-entrypoint-initdb.d
+    networks:
+      - sqloptimizer-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Password123 -Q 'SELECT 1' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  sqlserver-dev-data:
+    driver: local
+
+networks:
+  sqloptimizer-network:
+    driver: bridge

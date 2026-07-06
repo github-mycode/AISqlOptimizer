@@ -1,0 +1,235 @@
+2026-07-04 00:47:18.911 +05:30 [INF] Starting SqlOptimizer API
+2026-07-04 00:47:19.800 +05:30 [INF] SqlOptimizer API started successfully
+2026-07-04 00:47:19.900 +05:30 [INF] Now listening on: http://localhost:5119
+2026-07-04 00:47:19.904 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-04 00:47:19.906 +05:30 [INF] Hosting environment: Development
+2026-07-04 00:47:19.906 +05:30 [INF] Content root path: C:\AI\SqlOptimizer\SqlOptimizer.Api
+2026-07-04 00:47:41.997 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2026-07-04 00:47:42.125 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/ - 301 0 null 129.3614ms
+2026-07-04 00:47:42.135 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/index.html - null null
+2026-07-04 00:47:42.247 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/index.html - 200 null text/html;charset=utf-8 111.8704ms
+2026-07-04 00:47:42.269 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/swagger-ui.css - null null
+2026-07-04 00:47:42.275 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/swagger-ui-bundle.js - null null
+2026-07-04 00:47:42.275 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/swagger-ui-standalone-preset.js - null null
+2026-07-04 00:47:42.294 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-07-04 00:47:42.294 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-07-04 00:47:42.294 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-07-04 00:47:42.297 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/swagger-ui-standalone-preset.js - 200 230280 text/javascript 21.9026ms
+2026-07-04 00:47:42.297 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/swagger-ui.css - 200 152034 text/css 28.5221ms
+2026-07-04 00:47:42.298 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/swagger-ui-bundle.js - 200 1456926 text/javascript 22.8473ms
+2026-07-04 00:47:42.412 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - null null
+2026-07-04 00:47:42.425 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/favicon-32x32.png - null null
+2026-07-04 00:47:42.428 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-07-04 00:47:42.430 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/favicon-32x32.png - 200 628 image/png 4.7766ms
+2026-07-04 00:47:42.560 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 148.5757ms
+2026-07-04 00:47:49.881 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/api/SqlQueries - null null
+2026-07-04 00:47:49.891 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-07-04 00:47:49.896 +05:30 [INF] Executing endpoint 'SqlOptimizer.Api.Controllers.SqlQueriesController.GetAll (SqlOptimizer.Api)'
+2026-07-04 00:47:49.937 +05:30 [INF] Route matched with {action = "GetAll", controller = "SqlQueries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[SqlOptimizer.Application.DTOs.SqlQueryDto]]] GetAll(System.Threading.CancellationToken) on controller SqlOptimizer.Api.Controllers.SqlQueriesController (SqlOptimizer.Api).
+2026-07-04 00:47:49.983 +05:30 [INF] Getting all SQL queries
+2026-07-04 00:48:05.451 +05:30 [INF] Executed action SqlOptimizer.Api.Controllers.SqlQueriesController.GetAll (SqlOptimizer.Api) in 15508.4054ms
+2026-07-04 00:48:05.453 +05:30 [INF] Executed endpoint 'SqlOptimizer.Api.Controllers.SqlQueriesController.GetAll (SqlOptimizer.Api)'
+2026-07-04 00:48:05.455 +05:30 [ERR] An unhandled exception occurred
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at SqlOptimizer.Infrastructure.Repositories.BaseRepository`1.GetAllAsync(CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Infrastructure\Repositories\BaseRepository.cs:line 37
+   at SqlOptimizer.Application.Services.SqlQueryService.GetAllAsync(CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\SqlQueryService.cs:line 30
+   at SqlOptimizer.Api.Controllers.SqlQueriesController.GetAll(CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Api\Controllers\SqlQueriesController.cs:line 44
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at SqlOptimizer.Api.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\AI\SqlOptimizer\SqlOptimizer.Api\Middleware\ExceptionHandlingMiddleware.cs:line 24
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-07-04 00:48:05.593 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/api/SqlQueries - 500 null application/json 15711.3342ms
+2026-07-04 00:57:49.550 +05:30 [INF] Application is shutting down...
+2026-07-04 00:57:56.953 +05:30 [INF] Starting SqlOptimizer API
+2026-07-04 00:57:57.452 +05:30 [INF] SqlOptimizer API started successfully
+2026-07-04 00:57:57.506 +05:30 [INF] Now listening on: http://localhost:5119
+2026-07-04 00:57:57.510 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-04 00:57:57.511 +05:30 [INF] Hosting environment: Development
+2026-07-04 00:57:57.511 +05:30 [INF] Content root path: C:\AI\SqlOptimizer\SqlOptimizer.Api
+2026-07-04 00:58:49.001 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/index.html - null null
+2026-07-04 00:58:49.190 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/index.html - 200 null text/html;charset=utf-8 190.7006ms
+2026-07-04 00:58:49.355 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - null null
+2026-07-04 00:58:49.508 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 152.4972ms
+2026-07-04 10:14:31.604 +05:30 [INF] [] Starting SqlOptimizer API {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:14:32.133 +05:30 [INF] [] Swagger UI enabled at root path (/) {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:14:32.205 +05:30 [INF] [] SqlOptimizer API started successfully {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:14:32.263 +05:30 [INF] [Microsoft.Hosting.Lifetime] Now listening on: http://localhost:5119 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:14:32.272 +05:30 [INF] [Microsoft.Hosting.Lifetime] Application started. Press Ctrl+C to shut down. {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:14:32.275 +05:30 [INF] [Microsoft.Hosting.Lifetime] Hosting environment: Development {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:14:32.278 +05:30 [INF] [Microsoft.Hosting.Lifetime] Content root path: C:\AI\SqlOptimizer\SqlOptimizer.Api {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:19:27.994 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Request 6980a5be-ef0b-49c3-a77c-6bf3afa78b6e started. Method: GET, Path: /favicon.ico, QueryString: none, ContentType: none, ContentLength: 0 {"RequestPath":"/favicon.ico","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:19:28.012 +05:30 [WRN] [Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"RequestId":"0HNMPGUGD2A4Q:00000002","RequestPath":"/favicon.ico","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:19:28.024 +05:30 [WRN] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Response 6980a5be-ef0b-49c3-a77c-6bf3afa78b6e completed in 31.1875ms. StatusCode: 404, ContentType: none, ContentLength: 0 {"RequestPath":"/favicon.ico","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:19:31.902 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Request 6e91c030-5078-4a68-ae8f-a9c6a5a14021 started. Method: GET, Path: /swagger/, QueryString: none, ContentType: none, ContentLength: 0 {"RequestPath":"/swagger/","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:19:31.910 +05:30 [WRN] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Response 6e91c030-5078-4a68-ae8f-a9c6a5a14021 completed in 7.7347ms. StatusCode: 404, ContentType: none, ContentLength: 0 {"RequestPath":"/swagger/","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:36.844 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Request 9724837a-bf0e-4258-a1d4-ac500dd875a7 started. Method: POST, Path: /api/Database/connect, QueryString: none, ContentType: application/json, ContentLength: 135 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:36.852 +05:30 [DBG] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Request 9724837a-bf0e-4258-a1d4-ac500dd875a7 Body: {
+  "server": "localhost",
+  "database": "CompanyDB",
+  "username": "root",
+  "password": "test123",
+  "trustServerCertificate": true
+} {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:36.948 +05:30 [INF] [SqlOptimizer.Api.Controllers.DatabaseController] Received connection test request for server: localhost, database: CompanyDB {"ActionId":"abb75216-a305-4b75-b3f2-e580762e0504","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPGUGD2A4Q:00000006","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:37.194 +05:30 [INF] [SqlOptimizer.Application.Services.ConnectionService] Testing connection to server: localhost, database: CompanyDB {"ActionId":"abb75216-a305-4b75-b3f2-e580762e0504","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPGUGD2A4Q:00000006","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:52.345 +05:30 [ERR] [SqlOptimizer.Application.Services.ConnectionService] SQL connection error for server: localhost, database: CompanyDB {"ActionId":"abb75216-a305-4b75-b3f2-e580762e0504","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPGUGD2A4Q:00000006","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at SqlOptimizer.Application.Services.ConnectionService.TestConnectionAsync(DatabaseConnectionRequestDto request, CancellationToken cancellationToken) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\ConnectionService.cs:line 39
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-07-04 10:21:52.410 +05:30 [WRN] [SqlOptimizer.Api.Controllers.DatabaseController] Connection test failed for localhost/CompanyDB: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) {"ActionId":"abb75216-a305-4b75-b3f2-e580762e0504","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPGUGD2A4Q:00000006","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:52.442 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Response 9724837a-bf0e-4258-a1d4-ac500dd875a7 completed in 15603.0427ms. StatusCode: 200, ContentType: application/json; charset=utf-8, ContentLength: 0 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:52.449 +05:30 [DBG] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Response 9724837a-bf0e-4258-a1d4-ac500dd875a7 Body: {"success":false,"message":"SQL Server connection failed","serverVersion":null,"databaseName":null,"errorDetails":"A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)","timestamp":"2026-07-04T04:51:37.1944857Z"} {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:21:52.456 +05:30 [WRN] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Slow request detected! 9724837a-bf0e-4258-a1d4-ac500dd875a7 took 15.60s. Path: /api/Database/connect {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPGUGD2A4Q","ThreadId":17,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.275 +05:30 [INF] [] Starting SqlOptimizer API {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.728 +05:30 [INF] [] Swagger UI enabled at root path (/) {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.818 +05:30 [INF] [] SqlOptimizer API started successfully {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.889 +05:30 [INF] [Microsoft.Hosting.Lifetime] Now listening on: http://localhost:5119 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.897 +05:30 [INF] [Microsoft.Hosting.Lifetime] Application started. Press Ctrl+C to shut down. {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.901 +05:30 [INF] [Microsoft.Hosting.Lifetime] Hosting environment: Development {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:41.904 +05:30 [INF] [Microsoft.Hosting.Lifetime] Content root path: C:\AI\SqlOptimizer\SqlOptimizer.Api {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:58.980 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Request 62c54864-7cff-40ac-ab68-09e72d005c04 started. Method: POST, Path: /api/Database/connect, QueryString: none, ContentType: application/json, ContentLength: 181 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH7NRIMPV","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:58.992 +05:30 [DBG] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Request 62c54864-7cff-40ac-ab68-09e72d005c04 Body: {
+    "password":  "test123",
+    "databaseType":  1,
+    "server":  "localhost",
+    "username":  "root",
+    "trustServerCertificate":  true,
+    "database":  "CompanyDB"
+} {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH7NRIMPV","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:58.999 +05:30 [WRN] [Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"RequestId":"0HNMPH7NRIMPV:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH7NRIMPV","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:35:59.022 +05:30 [ERR] [SqlOptimizer.Api.Middleware.ExceptionHandlingMiddleware] An unhandled exception occurred {"RequestId":"0HNMPH7NRIMPV:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH7NRIMPV","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+System.InvalidOperationException: SqlServerProvider not registered
+   at SqlOptimizer.Application.Services.ConnectionService..ctor(IEnumerable`1 providers, ILogger`1 logger) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\ConnectionService.cs:line 26
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at SqlOptimizer.Api.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\AI\SqlOptimizer\SqlOptimizer.Api\Middleware\ExceptionHandlingMiddleware.cs:line 24
+2026-07-04 10:35:59.186 +05:30 [ERR] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Response 62c54864-7cff-40ac-ab68-09e72d005c04 completed in 213.2387ms. StatusCode: 500, ContentType: application/json, ContentLength: 0 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH7NRIMPV","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:47.963 +05:30 [INF] [] Starting SqlOptimizer API {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:48.129 +05:30 [INF] [] Swagger UI enabled at root path (/) {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:48.187 +05:30 [INF] [] SqlOptimizer API started successfully {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:48.237 +05:30 [INF] [Microsoft.Hosting.Lifetime] Now listening on: http://localhost:5119 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:48.243 +05:30 [INF] [Microsoft.Hosting.Lifetime] Application started. Press Ctrl+C to shut down. {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:48.245 +05:30 [INF] [Microsoft.Hosting.Lifetime] Hosting environment: Development {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:36:48.247 +05:30 [INF] [Microsoft.Hosting.Lifetime] Content root path: C:\AI\SqlOptimizer\SqlOptimizer.Api {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:00.826 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Request bd1e37b1-f166-445a-87f0-6c5e789092e8 started. Method: POST, Path: /api/Database/connect, QueryString: none, ContentType: application/json, ContentLength: 181 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8A9MG7G","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:00.837 +05:30 [DBG] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Request bd1e37b1-f166-445a-87f0-6c5e789092e8 Body: {
+    "password":  "test123",
+    "databaseType":  1,
+    "server":  "localhost",
+    "username":  "root",
+    "trustServerCertificate":  true,
+    "database":  "CompanyDB"
+} {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8A9MG7G","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:00.845 +05:30 [WRN] [Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"RequestId":"0HNMPH8A9MG7G:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8A9MG7G","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:00.871 +05:30 [ERR] [SqlOptimizer.Api.Middleware.ExceptionHandlingMiddleware] An unhandled exception occurred {"RequestId":"0HNMPH8A9MG7G:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8A9MG7G","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+System.InvalidOperationException: SqlServerProvider not registered
+   at SqlOptimizer.Application.Services.ConnectionService..ctor(IEnumerable`1 providers, ILogger`1 logger) in C:\AI\SqlOptimizer\SqlOptimizer.Application\Services\ConnectionService.cs:line 26
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at SqlOptimizer.Api.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\AI\SqlOptimizer\SqlOptimizer.Api\Middleware\ExceptionHandlingMiddleware.cs:line 24
+2026-07-04 10:37:00.946 +05:30 [ERR] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Response bd1e37b1-f166-445a-87f0-6c5e789092e8 completed in 127.0519ms. StatusCode: 500, ContentType: application/json, ContentLength: 0 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8A9MG7G","ThreadId":12,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.667 +05:30 [INF] [] Starting SqlOptimizer API {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.838 +05:30 [INF] [] Swagger UI enabled at root path (/) {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.894 +05:30 [INF] [] SqlOptimizer API started successfully {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.944 +05:30 [INF] [Microsoft.Hosting.Lifetime] Now listening on: http://localhost:5119 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.951 +05:30 [INF] [Microsoft.Hosting.Lifetime] Application started. Press Ctrl+C to shut down. {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.955 +05:30 [INF] [Microsoft.Hosting.Lifetime] Hosting environment: Development {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:11.958 +05:30 [INF] [Microsoft.Hosting.Lifetime] Content root path: C:\AI\SqlOptimizer\SqlOptimizer.Api {"ThreadId":1,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.410 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Request eb80a9b8-03e8-4b52-b9c2-e02291bd1509 started. Method: POST, Path: /api/Database/connect, QueryString: none, ContentType: application/json, ContentLength: 143 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.420 +05:30 [DBG] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Request eb80a9b8-03e8-4b52-b9c2-e02291bd1509 Body: {
+    "databaseType":  1,
+    "server":  "localhost",
+    "username":  "root",
+    "password":  "test123",
+    "database":  "CompanyDB"
+} {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.427 +05:30 [WRN] [Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"RequestId":"0HNMPH8JDC4ET:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.528 +05:30 [INF] [SqlOptimizer.Api.Controllers.DatabaseController] Received connection test request for server: localhost, database: CompanyDB {"ActionId":"1fba150d-65ca-490d-a70c-d98700eea313","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPH8JDC4ET:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.544 +05:30 [INF] [SqlOptimizer.Application.Services.ConnectionService] Testing "MySql" connection to server: localhost, database: CompanyDB {"ActionId":"1fba150d-65ca-490d-a70c-d98700eea313","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPH8JDC4ET:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":11,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.745 +05:30 [INF] [SqlOptimizer.Application.Services.ConnectionService] Successfully connected to "MySql" localhost/CompanyDB. Version: 8.0.46 {"ActionId":"1fba150d-65ca-490d-a70c-d98700eea313","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPH8JDC4ET:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":7,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.753 +05:30 [INF] [SqlOptimizer.Api.Controllers.DatabaseController] Connection test successful for localhost/CompanyDB {"ActionId":"1fba150d-65ca-490d-a70c-d98700eea313","ActionName":"SqlOptimizer.Api.Controllers.DatabaseController.Connect (SqlOptimizer.Api)","RequestId":"0HNMPH8JDC4ET:00000001","RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":7,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.779 +05:30 [INF] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] HTTP Response eb80a9b8-03e8-4b52-b9c2-e02291bd1509 completed in 377.8328ms. StatusCode: 200, ContentType: application/json; charset=utf-8, ContentLength: 0 {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":7,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
+2026-07-04 10:37:31.787 +05:30 [DBG] [SqlOptimizer.Api.Middleware.RequestResponseLoggingMiddleware] Response eb80a9b8-03e8-4b52-b9c2-e02291bd1509 Body: {"success":true,"databaseType":"MySql","message":"MySql connection successful","serverVersion":"8.0.46","databaseName":"CompanyDB","errorDetails":null,"timestamp":"2026-07-04T05:07:31.7531596Z"} {"RequestPath":"/api/Database/connect","ConnectionId":"0HNMPH8JDC4ET","ThreadId":7,"MachineName":"DESKTOP-OVIJV3N","EnvironmentName":"Development","Application":"SqlOptimizer"}
